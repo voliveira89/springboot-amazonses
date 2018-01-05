@@ -15,6 +15,7 @@ public class SpringbootAmazonSESApplication {
     private String to;
     private String subject;
     private String body;
+    private String filePath;
 
     private final AmazonEmailService amazonEmailService;
 
@@ -23,12 +24,14 @@ public class SpringbootAmazonSESApplication {
                                           @Value("${email.from}") String from,
                                           @Value("${email.to}") String to,
                                           @Value("${email.subject}") String subject,
-                                          @Value("${email.body}") String body) {
+                                          @Value("${email.body}") String body,
+                                          @Value("${email.attachment.path}") String filePath) {
         this.amazonEmailService = amazonEmailService;
         this.from = from;
         this.to = to;
         this.subject = subject;
         this.body = body;
+        this.filePath = filePath;
     }
 
     public static void main(String[] args) {
