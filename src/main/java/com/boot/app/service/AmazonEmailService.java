@@ -47,6 +47,14 @@ public class AmazonEmailService {
         this.secretKey = secretKey;
     }
 
+    /**
+     * See: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-using-sdk-java.html
+     *
+     * @param textSubject
+     * @param textBody
+     * @param fromEmail
+     * @param toEmail
+     */
     public void sendEmail(String textSubject, String textBody, String fromEmail, String... toEmail) {
         Destination destination = new Destination()
             .withToAddresses(toEmail);
@@ -83,6 +91,16 @@ public class AmazonEmailService {
         }
     }
 
+    /**
+     * See: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html
+     *
+     * @param textSubject
+     * @param textBody
+     * @param filePath
+     * @param fromEmail
+     * @param toEmail
+     * @throws MessagingException
+     */
     public void sendRawEmail(String textSubject, String textBody, String filePath, String fromEmail,
                              String... toEmail) throws MessagingException {
 
